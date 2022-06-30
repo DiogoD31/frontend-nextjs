@@ -44,8 +44,10 @@ table {
 	--poppins: 'Poppins', sans-serif;
 	--lato: 'Lato', sans-serif;
 
-	--light: #F9F9F9;
-	--blue: #3C91E6;
+	--light: #424040;
+	--blue: #1B98E0;
+  --secondary: #13293D;
+  --third: #9A1CC6;
 	--light-blue: #CFE8FF;
 	--grey: #eee;
 	--dark-grey: #AAAAAA;
@@ -78,9 +80,10 @@ table {
 	width: 60px;
 }
 #sidebar .brand {
-	font-size: 24px;
+	font-size: 28px;
 	font-weight: 700;
   margin-top: 25px;
+  margin-left: -25px;
 	height: 56px;
 	display: flex;
 	align-items: center;
@@ -92,6 +95,7 @@ table {
 	z-index: 500;
 	padding-bottom: 20px;
 	box-sizing: content-box;
+  text-decoration: none;
 }
 #sidebar .brand .bx {
 	min-width: 60px;
@@ -106,34 +110,11 @@ table {
 	height: 48px;
 	background: transparent;
 	margin-left: 6px;
-	border-radius: 48px 0 0 48px;
+	border-radius: 28px 0 0 28px;
 	padding: 4px;
 }
 #sidebar .side-menu li.active {
-	background: var(--grey);
 	position: relative;
-}
-#sidebar .side-menu li.active::before {
-	content: '';
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	top: -40px;
-	right: 0;
-	box-shadow: 20px 20px 0 var(--grey);
-	z-index: -1;
-}
-#sidebar .side-menu li.active::after {
-	content: '';
-	position: absolute;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	bottom: -40px;
-	right: 0;
-	box-shadow: 20px -20px 0 var(--grey);
-	z-index: -1;
 }
 #sidebar .side-menu li a {
 	width: 100%;
@@ -142,19 +123,21 @@ table {
 	display: flex;
 	align-items: center;
 	border-radius: 48px;
-	font-size: 16px;
-	color: var(--dark);
+	font-size: 17px;
+  font-weight: 500;
+  text-decoration: none;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
+	color: var(--grey);
 	white-space: nowrap;
 	overflow-x: hidden;
-}
-#sidebar .side-menu.top li.active a {
-	color: var(--blue);
 }
 #sidebar.hide .side-menu li a {
 	width: calc(48px - (4px * 2));
 	transition: width .3s ease;
 }
 #sidebar .side-menu li a.logout {
+  margin-top: 20rem;
 	color: var(--red);
 }
 #sidebar .side-menu.top li a:hover {
@@ -165,51 +148,36 @@ table {
 	display: flex;
 	justify-content: center;
 }
-/* .header{
-  height: 3rem;
-  background: linear-gradient(to right, #1B98E0, #13293D);
-}
-.navbar{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  color: #fff;
-}
-.title-nav{
-  font-size: 28px;
-  font-weight: 500;
-  color: #fff9f9;
-  margin-left: 6rem;
-}
-.title-nav:hover{
-  cursor: pointer;
-}
-.group-link{
-  display: flex;
-  gap: 1em;
-  font-size: 18px;
-}
-.group-link li:hover{
-  background-color: #dfd6d6;
-  border-radius: 3px;
-  transition: 0.3s ease;
-  cursor: pointer;
-  color: #3b0202;
-}
-.group-link li{
-  padding: 5px 14px;
-}
-.link-nav Link{
-  list-style: none;
-}
-.link-nav{
-  list-style: none;
-  font-size: 18px;
-  font-weight: 400;
-  color: #fff9f9;
-} */
 
+#content {
+	position: relative;
+	width: calc(100% - 200px);
+	left: 200px;
+	transition: .3s ease;
+  border-radius: 0 0 0 10px;
+}
+#sidebar.hide ~ #content {
+	width: calc(100% - 60px);
+	left: 60px;
+}
+
+#content nav {
+	height: 56px;
+	background: var(--light);
+	padding: 0 24px;
+	display: flex;
+	align-items: center;
+	grid-gap: 24px;
+	font-family: var(--lato);
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+}
+#content nav .notification {
+	font-size: 20px;
+	position: relative;
+}
 
 /* --------------- LOGIN ----------------------- */
 .page-login {
@@ -355,7 +323,9 @@ table {
 	margin: auto;
 	margin-top: 45px;
 	padding-top: 10px;
+  margin-bottom: 5rem;
 	text-align: center;
+  margin-left: 32rem;
 }
 .view-user-title{
 	color: black;
@@ -378,31 +348,55 @@ table {
 .view-user-btn:hover{
 	opacity: 0.7;
 }
+.table-data{
+  display: flex;
+	margin-top: 24px;
+	width: 80%;
+	color: var(--dark);
+  margin-left: 235px;
+}
+.table-data table {
+	width: 80%;
+	border-collapse: collapse;
+}
+.table-data table th {
+	padding-bottom: 12px;
+  padding-right: 40px;
+	font-size: 22px;
+  font-weight: 600;
+	text-align: left;
+	border-bottom: 1px solid var(--grey);
+}
+.table-data  table .cargos-status {
+	padding: 16px 0;
+  font-size: 18px;
+}
 
-.home-cargos{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 12.5rem;
-  gap: 1rem;
-  width: 100%;
-  max-width: 37.5rem;
-  padding: 0.5rem;
-  margin-top: 75px;
-  box-sizing: border-box;
-  border-collapse: separate;
-  border-spacing: 0 0.5em;
-  background-color: #1B98E0;
+.table-data table tr .cargos-status:first-child {
+	display: flex;
+	align-items: center;
+	grid-gap: 1px;
+	padding-left: 6px;
 }
-.home-cargos-title th{
-	font-size: 30px;
-	font-weight: bold;
-	padding-left: 15px;
+.table-data table .cargos-edit{
+  color: var(--blue);
+  font-size: 19px;
 }
-.home-cargos-item td{
-	padding: 10px;
-	font-size: 20px;
+.table-data table .cargos-delete{
+  margin-left: -60px;
+  font-size: 22px;
+  color: rgba(245, 14, 14, 0.973);
 }
-
+.table-data table tbody tr:hover {
+	background: var(--grey);
+}
+.cargo-add{
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--blue);
+  padding-top: 1.5rem;
+}
 
 /* --------------- WELCOME PAGE ----------------------- */
 .welcome-header{
@@ -654,4 +648,78 @@ table {
   font-size: 0.93rem;
   font-weight: 500;
   color: #fff;
+}
+
+/* --------------- cargos registro ----------------------- */
+
+.body-cargos-registro{
+  margin-left: 200px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue);
+}
+.container-cargo-registro{
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 6px;
+  padding: 30px;
+  margin: 0 15px;
+  background-color: #fff;
+  box-shadow:  0 5px 10px rgba(0,0,0,0.1);
+}
+.container-cargo-registro header{
+  position: relative;
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+.container-cargo-registro header::before{
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  height: 3px;
+  width: 27px;
+  border-radius: 8px;
+  background-color: #4070f4;
+}
+.container-cargo-registro form{
+  position: relative;
+  margin-top: 16px;
+  min-height: 490px;
+  background-color: #fff;
+}
+.container-cargo-registro form .details{
+  margin-top: 10px;
+  
+}
+.container-cargo-registro form .title{
+  font-size: 16px;
+  font-weight: 500;
+  margin: 6px 0;
+  color: #333;
+}
+.container-cargo-registro form .field{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+form .fields .input-field{
+  display: flex;
+  width: calc(100% /3 - 15px);
+  flex-direction: column;
+  margin: 4px 0;
+}
+.input-field label{
+  font-size: 12px;
+  font-weight: 500;
+  color: #2e2e2e;
+}
+
+.input-field input{
+  height: 42px;
+  margin: 8px 0;
 }

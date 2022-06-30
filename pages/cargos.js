@@ -5,10 +5,12 @@ import { removeToken, getToken } from "../lib/token";
 import Link from "next/link";
 import fontwhitecenter from '../styles/font-white-center';
 import Header from "../components/Header";
+import { BiPencil, BiX} from "react-icons/bi";
 
 const styles = {
   marginTop: 30,
   textAlign: "left",
+  marginLeft: 220
 };
 
 export default function Cargo() {
@@ -104,35 +106,48 @@ export default function Cargo() {
         </div>
 
         <p style={fontwhitecenter}>{msg}</p>
-        {/* <h3>{cargos.length == 0 ? "Empty" : "Not Empty"}!</h3> */}
-        {cargos && cargos.length ? (
-
-          <table className="home-cargos">
-            <tbody>
-              
-              <tr className="home-cargos-title">
-                <th>Descricao</th>
-                <th>salario</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-              {cargos.map((cargo, index) => (
-                <tr className="home-cargos-item" key={index}>
-                  <td onClick={() => redirectToView(cargo.id)}>{cargo.descricao}</td> 
-                  <td>{cargo.salario}</td>
-                  <td onClick={() => redirectToUpdate(cargo.id)}>Edit</td>
-                  <td onClick={() => handleDelete(cargo.id)}>Delete</td>
+        <div className="table-data">
+          {cargos && cargos.length ? (
+            <table className="home-cargos">
+              <thead>
+                <tr className="home-cargos-title">
+                  <th>Descricao</th>
+                  <th>Salario</th>
+                  <th>Beneficios</th>
+                  <th>Experiencia</th>
+                  <th>Competencias</th> 
+                  <th>Hab. Desejadas</th> 
+                  <th>Editar</th>
                 </tr>
-              ))}
-              <tr><th><Link href="/cargo-register">Add</Link></th></tr>
-            </tbody>
-          </table>
-        ) : (
-          <div style={styles}>
-            Lista Vazia
-            <Link href="/cargo-register">Add</Link>
-          </div>
-        )}
+              </thead>
+              <tbody>
+                {cargos.map((cargo, index) => (
+                  <tr className="home-cargos-item" key={index}>
+                    <td onClick={() => redirectToView(cargo.id)} className='cargos-status'>{cargo.descricao}</td> 
+                    <td className='cargos-status'>{cargo.salario}</td>
+                    <td className='cargos-status'>{cargo.beneficios}</td>
+                    <td className='cargos-status'>{cargo.experiencia}</td>
+                    <td className='cargos-status'>{cargo.competenciasDesejadas}</td>
+                    <td className='cargos-status'>{cargo.habilidadesDesejadas}</td>
+                    <td onClick={() => redirectToUpdate(cargo.id)} ><BiPencil className='cargos-edit'/></td>
+                    <td onClick={() => handleDelete(cargo.id)} ><BiX className='cargos-delete'/></td>
+                  </tr>
+                ))}
+                <tr>
+                  <Link href="/cargo-register">
+                    <th className="cargo-add">Adicionar</th>
+                  </Link>
+                </tr>
+              </tbody>
+            </table>
+          ) : (
+            <div style={styles}>
+              Lista Vazia
+              <Link href="/cargo-register">Add</Link>
+            </div>
+          )}
+        </div>
+        
         <style jsx>{`
         h3 {
           color: black;

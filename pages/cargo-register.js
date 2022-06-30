@@ -54,7 +54,6 @@ const CargoRegister = () => {
   return (
     <div>
       <BaseLayout>
-        {user.username}
         <CargoRegisterForm />
 
         <div style={styles}>

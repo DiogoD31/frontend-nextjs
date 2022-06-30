@@ -3,6 +3,7 @@ import { registerCargo } from "../../../lib/auth";
 import Router from "next/router";
 import fontwhitecenter from '../../../styles/font-white-center';
 import fontwhite from '../../../styles/font-white';
+import Header from "../../Header";
 
 //const CargoRegisterForm = ({ cargo }) => {
   
@@ -55,13 +56,52 @@ export function CargoRegisterForm({id, descricaoa, experienciaa}) { // areaAtuac
   }
 
   return (
+    
     <div>
-      <p style={fontwhitecenter}>{msg}</p>
-      <form onSubmit={handleSubmit}>
-        <fieldset>
-          <legend className="h1" style={fontwhite}>Register</legend>
+      <Header />
+      <div className="body-cargos-registro">
+        <div className="container-cargo-registro">
+            <header>Registrar</header>
+
+            <form action="#">
+              <div className="details personal">
+                  <span className="title">Personal Details</span>
+
+                  <div className="fields">
+                    <div className="input-field">
+                      <label>Descrição</label>
+                      <input type="text" placeholder="Digite a descrição"></input>
+                    </div>
+                    <div className="input-field">
+                      <label>Descrição</label>
+                      <input type="text" placeholder="Digite a descrição"></input>
+                    </div>
+                    <div className="input-field">
+                      <label>Descrição</label>
+                      <input type="text" placeholder="Digite a descrição"></input>
+                    </div>
+                  </div>
+              </div>
+            </form>
+        </div>
+      </div>
+      
+
+
+
+
+
+
+
+
+
+
+
+      {/* <form onSubmit={handleSubmit} className="form-cargo-registro">
+        <fieldset className="field-cargo-registro">
+          <legend className="h1">Register</legend>
           <div className="mb-3">
-            <label htmlFor="descricaoInput" className="form-label" style={fontwhite}>
+            <label htmlFor="descricaoInput" className="form-label">
               Descrição:&nbsp;&nbsp;
             </label>
             <input
@@ -74,7 +114,7 @@ export function CargoRegisterForm({id, descricaoa, experienciaa}) { // areaAtuac
           </div>
           <br />
           <div className="mb-3">
-            <label htmlFor="experienciaInput" className="form-label" style={fontwhite}>
+            <label htmlFor="experienciaInput" className="form-label">
               Experiência:&nbsp;&nbsp;
             </label>
             <textarea
@@ -87,7 +127,7 @@ export function CargoRegisterForm({id, descricaoa, experienciaa}) { // areaAtuac
           </div>
           <br />
           <div className="mb-3">
-            <label htmlFor="areaAtuacaoInput" className="form-label" style={fontwhite}>
+            <label htmlFor="areaAtuacaoInput" className="form-label">
               Area Atuação:&nbsp;&nbsp;
             </label>
             <input
@@ -100,7 +140,7 @@ export function CargoRegisterForm({id, descricaoa, experienciaa}) { // areaAtuac
           </div>
           <br />
           <div className="mb-3">
-            <label htmlFor="beneficiosInput" className="form-label" style={fontwhite}>
+            <label htmlFor="beneficiosInput" className="form-label">
               Benefícios:&nbsp;&nbsp;
             </label>
             <textarea
@@ -113,7 +153,7 @@ export function CargoRegisterForm({id, descricaoa, experienciaa}) { // areaAtuac
           </div>
           <br />
           <div className="mb-3">
-            <label htmlFor="salarioInput" className="form-label" style={fontwhite}>
+            <label htmlFor="salarioInput" className="form-label">
               Salário:&nbsp;&nbsp;
             </label>
             <input
@@ -126,7 +166,7 @@ export function CargoRegisterForm({id, descricaoa, experienciaa}) { // areaAtuac
           </div>
           <br />
           <div className="mb-3">
-            <label htmlFor="habilidadesDesejadasInput" className="form-label" style={fontwhite}>
+            <label htmlFor="habilidadesDesejadasInput" className="form-label">
               Habilidades Desejadas:&nbsp;&nbsp;
             </label>
             <textarea
@@ -139,7 +179,7 @@ export function CargoRegisterForm({id, descricaoa, experienciaa}) { // areaAtuac
           </div>
           <br />
           <div className="mb-3">
-            <label htmlFor="competenciasDesejadasInput" className="form-label" style={fontwhite}>
+            <label htmlFor="competenciasDesejadasInput" className="form-label">
               Competências Desejadas:&nbsp;&nbsp;
             </label>
             <textarea
@@ -155,7 +195,7 @@ export function CargoRegisterForm({id, descricaoa, experienciaa}) { // areaAtuac
             Submit
           </button>
         </fieldset>
-      </form>
+      </form> */}
     </div>
   );
 };

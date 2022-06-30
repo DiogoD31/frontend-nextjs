@@ -5,52 +5,55 @@ import { BiBook,BiMessageAlt,BiMessageCheck,BiUser,BiRocket,BiLogOut } from "rea
 
 export default function Header() {
   return (
-    <section id="sidebar">
-      <a href="#" className="brand">
-        <i className='bx bxs-smile'></i>
-        <span className="text">Estagiun</span>
-      </a>
-      <ul className="side-menu top">
-        <li className="active">
-          <a href="#">
-            <BiBook className='bx bxs-dashboard' />
-            <span className="text">Curriculo</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <BiMessageAlt className='bx bxs-shopping-bag-alt' />
-            <span className="text">Cargos</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <BiMessageCheck className='bx bxs-doughnut-chart' />
-            <span className="text">Vagas Aplicadas</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <BiUser className='bx bxs-message-dots' />
-            <span className="text">Perfil</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <BiRocket className='bx bxs-group' />
-            <span className="text">Dicas</span>
-          </a>
-        </li>
-      </ul>
-      <ul className="side-menu">
-        <li>
-          <a href="#" className="logout">
-            <BiLogOut className='bx bxs-log-out-circle' />
-            <span className="text">Logout</span>
-          </a>
-        </li>
-      </ul>
-	  </section>
+    <div>
+      <section id="sidebar">
+        <a href="/cargos" className="brand">
+          <i className='bx bxs-smile'></i>
+          <span className="text">Estagiun</span>
+        </a>
+        <ul className="side-menu top">
+          <li className="active">
+            <a href="/curriculo">
+              <BiBook className='bx bxs-dashboard' />
+              <span className="text">Curriculo</span>
+            </a>
+          </li>
+          <li>
+            <a href="/cargos">
+              <BiMessageAlt className='bx bxs-shopping-bag-alt' />
+              <span className="text">Cargos</span>
+            </a>
+          </li>
+          <li>
+            <a href="/vagasaplicadas">
+              <BiMessageCheck className='bx bxs-doughnut-chart' />
+              <span className="text">Vagas Aplicadas</span>
+            </a>
+          </li>
+          <li>
+            <a href="/perfil">
+              <BiUser className='bx bxs-message-dots' />
+              <span className="text">Perfil</span>
+            </a>
+          </li>
+          <li>
+            <a href="/dicas">
+              <BiRocket className='bx bxs-group' />
+              <span className="text">Dicas</span>
+            </a>
+          </li>
+        </ul>
+        <ul className="side-menu">
+          <li>
+            <a href="/logout" className="logout">
+              <BiLogOut className='bx bxs-log-out-circle' />
+              <span className="text">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </div>
+    
 
 
 
