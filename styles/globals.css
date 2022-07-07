@@ -139,6 +139,7 @@ table {
 #sidebar .side-menu li a.logout {
   margin-top: 20rem;
 	color: var(--red);
+  cursor: pointer;
 }
 #sidebar .side-menu.top li a:hover {
 	color: var(--blue);
@@ -391,11 +392,15 @@ table {
 	background: var(--grey);
 }
 .cargo-add{
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--blue);
-  padding-top: 1.5rem;
+  border-radius: 20px;
+	background-color: #13293D;
+	color: #FFFFFF;
+	font-size: 12px;
+  margin-top: 30px;
+	padding: 10px 35px;
+	letter-spacing: 1px;
+	transition: transform 80ms ease-in;
+  cursor: pointer;
 }
 
 /* --------------- WELCOME PAGE ----------------------- */
@@ -672,7 +677,7 @@ table {
 }
 .container-cargo-registro header{
   position: relative;
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 600;
   color: #333;
 }
@@ -708,18 +713,43 @@ table {
 }
 
 form .fields .input-field{
-  display: flex;
+  display: inline-flex;
+  padding-right: 5rem;
+  padding-bottom: 1.3rem;
   width: calc(100% /3 - 15px);
   flex-direction: column;
   margin: 4px 0;
 }
 .input-field label{
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 500;
   color: #2e2e2e;
+}
+.input-field .salario-aviso{
+  color: #AAAAAA;
+  font-size: 12px;
+  font-weight: 100;
+  padding-left: 5rem;
 }
 
 .input-field input{
   height: 42px;
   margin: 8px 0;
+  border: 1.5px solid rgb(36, 35, 35);
+  border-radius: 5px;
+  padding-left: 6px;
+}
+.btn-cargos{
+  border-radius: 20px;
+	border: 1px solid #13293D;
+	background-color: #13293D;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+  margin-top: 20px;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+  cursor: pointer;
 }

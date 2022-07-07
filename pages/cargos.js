@@ -34,16 +34,16 @@ export default function Cargo() {
             const userData = await whoAmI();
 
             if (userData !== null) {
-              console.log('Data: ' + JSON.stringify(userData))
+              //console.log('Data: ' + JSON.stringify(userData))
               setUser(userData);
             }
 
             var email = JSON.stringify(userData.email);
-            console.log('email: ' + email);
+            //console.log('email: ' + email);
 
             const cargos = await cargoList();
             if (cargos != null) {
-              console.log('Data CArgos: ' + JSON.stringify(cargos));
+              //console.log('Data CArgos: ' + JSON.stringify(cargos));
               setCargo(cargos);
             }
 

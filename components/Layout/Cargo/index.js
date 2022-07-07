@@ -1,14 +1,11 @@
 import { useState } from "react";
 import { registerCargo } from "../../../lib/auth";
 import Router from "next/router";
-import fontwhitecenter from '../../../styles/font-white-center';
-import fontwhite from '../../../styles/font-white';
 import Header from "../../Header";
 
 //const CargoRegisterForm = ({ cargo }) => {
   
-export function CargoRegisterForm({id, descricaoa, experienciaa}) { // areaAtuacaoa, beneficiosa, salarioa, habilidadesDesejadasa, competenciasDesejadasa}) {
-  console.log('Cargo do Componente', id + descricaoa + experienciaa); //+ areaAtuacaoa + beneficiosa + salarioa + habilidadesDesejadasa + competenciasDesejadasa);
+export function CargoRegisterForm({}) {
 
   const [descricao, setDescricao] = useState("");
   const [experiencia, setExperiencia] = useState("");
@@ -56,146 +53,67 @@ export function CargoRegisterForm({id, descricaoa, experienciaa}) { // areaAtuac
   }
 
   return (
-    
     <div>
       <Header />
       <div className="body-cargos-registro">
         <div className="container-cargo-registro">
-            <header>Registrar</header>
+            <header>Adicionar Vaga</header>
 
-            <form action="#">
+          <form onSubmit={handleSubmit}>
               <div className="details personal">
-                  <span className="title">Personal Details</span>
-
                   <div className="fields">
                     <div className="input-field">
                       <label>Descrição</label>
-                      <input type="text" placeholder="Digite a descrição"></input>
+                      <input  className="input-field-descricao" 
+                              type="text" 
+                              placeholder="Digite a Descrição"
+                              onChange={(e) => setDescricao(e.target.value)}>
+                      </input>
                     </div>
                     <div className="input-field">
-                      <label>Descrição</label>
-                      <input type="text" placeholder="Digite a descrição"></input>
+                      <label>Experiência</label>
+                      <input  type="text" 
+                              placeholder="Digite a Experiência"
+                              onChange={(e) => setExperiencia(e.target.value)}></input>
                     </div>
                     <div className="input-field">
-                      <label>Descrição</label>
-                      <input type="text" placeholder="Digite a descrição"></input>
+                      <label>Area Atuação</label>
+                      <input  type="text" 
+                              placeholder="Digite a Area Atuação"
+                              onChange={(e) => setAreaAtuacao(e.target.value)}></input>
+                    </div>
+                    <div className="input-field">
+                      <label>Benefícios</label>
+                      <input  type="text" 
+                              placeholder="Digite os Benefícios"
+                              onChange={(e) => setBeneficios(e.target.value)}></input>
+                    </div>
+                    <div className="input-field">
+                      <label>Salário</label><span className="salario-aviso">*Exemplo: 1200.00*</span>
+                      <input  type="text" 
+                              placeholder="Digite o Salário"
+                              onChange={(e) => setSalario(e.target.value)}></input>
+                    </div>
+                    <div className="input-field">
+                      <label>Habilidades Desejadas</label>
+                      <input  type="text" 
+                              placeholder="Digite as Habilidades Desejadas"
+                              onChange={(e) => setHabilidadesDesejadas(e.target.value)}></input>
+                    </div>
+                    <div className="input-field">
+                      <label>Competências Desejadas</label>
+                      <input  type="text" 
+                              placeholder="Digite as Competências Desejadas"
+                              onChange={(e) => setCompetenciasDesejadas(e.target.value)}></input>
                     </div>
                   </div>
               </div>
-            </form>
+              <button type="submit" className="btn-cargos">
+                Enviar
+              </button>
+          </form>
         </div>
       </div>
-      
-
-
-
-
-
-
-
-
-
-
-
-      {/* <form onSubmit={handleSubmit} className="form-cargo-registro">
-        <fieldset className="field-cargo-registro">
-          <legend className="h1">Register</legend>
-          <div className="mb-3">
-            <label htmlFor="descricaoInput" className="form-label">
-              Descrição:&nbsp;&nbsp;
-            </label>
-            <input
-              type="text"
-              id="descricaoInput"
-              className="form-control"
-              placeholder="Descricao"
-              onChange={(e) => setDescricao(e.target.value)}
-            />
-          </div>
-          <br />
-          <div className="mb-3">
-            <label htmlFor="experienciaInput" className="form-label">
-              Experiência:&nbsp;&nbsp;
-            </label>
-            <textarea
-              type="text"
-              id="experienciaInput"
-              className="form-control"
-              placeholder="Experiencia"
-              onChange={(e) => setExperiencia(e.target.value)}
-            ></textarea>
-          </div>
-          <br />
-          <div className="mb-3">
-            <label htmlFor="areaAtuacaoInput" className="form-label">
-              Area Atuação:&nbsp;&nbsp;
-            </label>
-            <input
-              type="text"
-              id="areaAtuacaoInput"
-              className="form-control"
-              placeholder="Area Atuação"
-              onChange={(e) => setAreaAtuacao(e.target.value)}
-            />
-          </div>
-          <br />
-          <div className="mb-3">
-            <label htmlFor="beneficiosInput" className="form-label">
-              Benefícios:&nbsp;&nbsp;
-            </label>
-            <textarea
-              type="text"
-              id="beneficiosInput"
-              className="form-control"
-              placeholder="Benefícios"
-              onChange={(e) => setBeneficios(e.target.value)}
-            ></textarea>
-          </div>
-          <br />
-          <div className="mb-3">
-            <label htmlFor="salarioInput" className="form-label">
-              Salário:&nbsp;&nbsp;
-            </label>
-            <input
-              type="text"
-              id="salarioInput"
-              className="form-control"
-              placeholder="Salário"
-              onChange={(e) => setSalario(e.target.value)}
-            />
-          </div>
-          <br />
-          <div className="mb-3">
-            <label htmlFor="habilidadesDesejadasInput" className="form-label">
-              Habilidades Desejadas:&nbsp;&nbsp;
-            </label>
-            <textarea
-              type="text"
-              id="habilidadesDesejadasInput"
-              className="form-control"
-              placeholder="Habilidades Desejadas"
-              onChange={(e) => setHabilidadesDesejadas(e.target.value)}
-            ></textarea>
-          </div>
-          <br />
-          <div className="mb-3">
-            <label htmlFor="competenciasDesejadasInput" className="form-label">
-              Competências Desejadas:&nbsp;&nbsp;
-            </label>
-            <textarea
-              type="text"
-              id="competenciasDesejadasInput"
-              className="form-control"
-              placeholder="Habilidades Desejadas"
-              onChange={(e) => setCompetenciasDesejadas(e.target.value)}
-            ></textarea>
-          </div>
-          <br />
-          <button type="submit" className="btn btn-primary">
-            Submit
-          </button>
-        </fieldset>
-      </form> */}
     </div>
   );
 };

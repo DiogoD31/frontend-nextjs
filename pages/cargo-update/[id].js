@@ -1,18 +1,14 @@
 import React, { useState } from "react";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
+import Router from "next/router";
 import { BaseLayout } from "../../components/Layout/Base";
 import { CargoRegisterForm } from "../../components/Layout/Cargo";
 import { updateCargo } from "../../lib/auth";
 import { whoAmI, cargoPorId } from "../../lib/auth";
 import { getToken } from "../../lib/token";
 import Link from "next/link";
-import fontwhitecenter from '../../styles/font-white-center';
-import fontwhite from '../../styles/font-white';
+import Header from "../../components/Header";
 
-const styles = {
-  marginTop: 30,
-  textAlign: "center",
-};
 
 const CargoUpdate = () => {
   const [user, setUser] = useState({});
@@ -26,6 +22,7 @@ const CargoUpdate = () => {
   const [habilidadesDesejadas, setHabilidadesDesejadas] = useState("");
   const [competenciasDesejadas, setCompetenciasDesejadas] = useState("");
   const [msg, setMessage] = useState("");
+
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -46,10 +43,9 @@ const CargoUpdate = () => {
       } else if (dataResponse.status === 200) {
         setMessage("Dados Cadastrados")
         console.log("Dados Cadastrados")
-
+        redirectToCargo()
         let intervalId = setTimeout(reload, 3000);
         console.log('Interval: ' + intervalId);
-
       } else {
         Router.push("/login");
       }
@@ -123,121 +119,98 @@ const CargoUpdate = () => {
   function redirectToLogin() {
     Router.push("/login");
   }
-
+  function redirectToCargo() {
+    Router.push("/cargos");
+  }
   return (
     <div>
       <BaseLayout>
-        <p style={fontwhitecenter}>{msg}</p>
-        <form onSubmit={handleSubmit}>
-          <fieldset>
-            <legend className="h1" style={fontwhite}>Register</legend>
-            <div className="mb-3">
-              <label htmlFor="descricaoInput" className="form-label" style={fontwhite}>
-                Descrição:&nbsp;&nbsp;
-              </label>
-              <input
-                type="text"
-                id="descricaoInput"
-                className="form-control"
-                placeholder="Descricao"
-                value={descricao}
-                onChange={(e) => setDescricao(e.target.value)}
-              />
-            </div>
-            <br />
-            <div className="mb-3">
-              <label htmlFor="experienciaInput" className="form-label" style={fontwhite}>
-                Experiência:&nbsp;&nbsp;
-              </label>
-              <textarea
-                type="text"
-                id="experienciaInput"
-                className="form-control"
-                placeholder="Experiencia"
-                value={salario}
-                onChange={(e) => setExperiencia(e.target.value)}
-              ></textarea>
-            </div>
-            <br />
-            <div className="mb-3">
-              <label htmlFor="areaAtuacaoInput" className="form-label" style={fontwhite}>
-                Area Atuação:&nbsp;&nbsp;
-              </label>
-              <input
-                type="text"
-                id="areaAtuacaoInput"
-                className="form-control"
-                placeholder="Area Atuação"
-                value={areaAtuacao}
-                onChange={(e) => setAreaAtuacao(e.target.value)}
-              />
-            </div>
-            <br />
-            <div className="mb-3">
-              <label htmlFor="beneficiosInput" className="form-label" style={fontwhite}>
-                Benefícios:&nbsp;&nbsp;
-              </label>
-              <textarea
-                type="text"
-                id="beneficiosInput"
-                className="form-control"
-                placeholder="Benefícios"
-                value={beneficios}
-                onChange={(e) => setBeneficios(e.target.value)}
-              ></textarea>
-            </div>
-            <br />
-            <div className="mb-3">
-              <label htmlFor="salarioInput" className="form-label" style={fontwhite}>
-                Salário:&nbsp;&nbsp;
-              </label>
-              <input
-                type="text"
-                id="salarioInput"
-                className="form-control"
-                placeholder="Salário"
-                value={salario}
-                onChange={(e) => setSalario(e.target.value)}
-              />
-            </div>
-            <br />
-            <div className="mb-3">
-              <label htmlFor="habilidadesDesejadasInput" className="form-label" style={fontwhite}>
-                Habilidades Desejadas:&nbsp;&nbsp;
-              </label>
-              <textarea
-                type="text"
-                id="habilidadesDesejadasInput"
-                className="form-control"
-                placeholder="Habilidades Desejadas"
-                value={habilidadesDesejadas}
-                onChange={(e) => setHabilidadesDesejadas(e.target.value)}
-              ></textarea>
-            </div>
-            <br />
-            <div className="mb-3">
-              <label htmlFor="competenciasDesejadasInput" className="form-label" style={fontwhite}>
-                Competências Desejadas:&nbsp;&nbsp;
-              </label>
-              <textarea
-                type="text"
-                id="competenciasDesejadasInput"
-                className="form-control"
-                placeholder="Habilidades Desejadas"
-                value={competenciasDesejadas}
-                onChange={(e) => setCompetenciasDesejadas(e.target.value)}
-              ></textarea>
-            </div>
-            <br />
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </fieldset>
-        </form>
-        <span>{cargo.id}</span>
-        <div style={styles}>
-          <Link href="/cargos">cargos</Link>
+      <Header/>
+      <div className="body-cargos-registro">
+        <div className="container-cargo-registro">
+            <header>Editar Vaga</header>
+
+          <form onSubmit={handleSubmit}>
+              <div className="details personal">
+                  <div className="fields">
+                    <div className="input-field">
+                      <label>Descrição</label>
+                      <input
+                            type="text"
+                            id="descricaoInput"
+                            placeholder="Descricao"
+                            value={descricao}
+                            onChange={(e) => setDescricao(e.target.value)}
+                      />
+                    </div>
+                    <div className="input-field">
+                      <label>Experiência</label>
+                      <input
+                        type="text"
+                        id="experienciaInput"
+                        placeholder="Experiencia"
+                        value={experiencia}
+                        onChange={(e) => setExperiencia(e.target.value)}
+                      />
+                    </div>
+                    <div className="input-field">
+                      <label>Area Atuação</label>
+                      <input
+                        type="text"
+                        id="areaAtuacaoInput"
+                        placeholder="Area Atuação"
+                        value={areaAtuacao}
+                        onChange={(e) => setAreaAtuacao(e.target.value)}
+                      />
+                    </div>
+                    <div className="input-field">
+                      <label>Benefícios</label>
+                      <input
+                        type="text"
+                        id="beneficiosInput"
+                        placeholder="Benefícios"
+                        value={beneficios}
+                        onChange={(e) => setBeneficios(e.target.value)}
+                      />
+                    </div>
+                    <div className="input-field">
+                      <label>Salário</label><span className="salario-aviso">*Exemplo: 1200.00*</span>
+                      <input
+                        type="text"
+                        id="salarioInput"
+                        placeholder="Salário"
+                        value={salario}
+                        onChange={(e) => setSalario(e.target.value)}
+                      />
+                    </div>
+                    <div className="input-field">
+                      <label>Habilidades Desejadas</label>
+                      <input
+                        type="text"
+                        id="habilidadesDesejadasInput"
+                        placeholder="Habilidades Desejadas"
+                        value={habilidadesDesejadas}
+                        onChange={(e) => setHabilidadesDesejadas(e.target.value)}
+                      />
+                    </div>
+                    <div className="input-field">
+                      <label>Competências Desejadas</label>
+                      <input
+                        type="text"
+                        id="competenciasDesejadasInput"
+                        placeholder="Habilidades Desejadas"
+                        value={competenciasDesejadas}
+                        onChange={(e) => setCompetenciasDesejadas(e.target.value)}
+                      />
+                    </div>
+                  </div>
+              </div>
+              <button type="submit" className="btn-cargos">
+                Editar
+              </button>
+          </form>
         </div>
+      </div>
       </BaseLayout>
     </div>
   );

@@ -60,7 +60,7 @@ export function RegisterForm() {
           <button 
             type="submit" 
             className="btn-cadastro">
-            Login
+            Cadastrar
           </button>
           <div className="cadastro-login">
             <Link href="/login">

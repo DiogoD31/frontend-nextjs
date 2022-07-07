@@ -1,9 +1,23 @@
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
+import Router from "next/router";
+import { removeToken } from '../lib/token';
 import { BiBook,BiMessageAlt,BiMessageCheck,BiUser,BiRocket,BiLogOut } from "react-icons/bi";
 
 
 export default function Header() {
+
+  function redirectToLogin() {
+    Router.push("/login");
+  }
+
+  function handleLogout(e) {
+    e.preventDefault();
+
+    removeToken();
+    redirectToLogin();
+  }
+
   return (
     <div>
       <section id="sidebar">
@@ -24,12 +38,12 @@ export default function Header() {
               <span className="text">Cargos</span>
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href="/vagasaplicadas">
               <BiMessageCheck className='bx bxs-doughnut-chart' />
               <span className="text">Vagas Aplicadas</span>
             </a>
-          </li>
+          </li> */}
           <li>
             <a href="/perfil">
               <BiUser className='bx bxs-message-dots' />
@@ -39,15 +53,15 @@ export default function Header() {
           <li>
             <a href="/dicas">
               <BiRocket className='bx bxs-group' />
-              <span className="text">Dicas</span>
+              <span className="text">Em breve</span>
             </a>
           </li>
         </ul>
         <ul className="side-menu">
           <li>
-            <a href="/logout" className="logout">
+            <a href="/login" className="logout">
               <BiLogOut className='bx bxs-log-out-circle' />
-              <span className="text">Logout</span>
+              <span className="text" onClick={handleLogout}>Logout</span>
             </a>
           </li>
         </ul>

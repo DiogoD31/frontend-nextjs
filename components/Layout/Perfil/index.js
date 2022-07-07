@@ -58,113 +58,63 @@ export default function PerfilRegisterForm({id}) {
   return (
     <div>
       <p>{msg}</p>
-        <div className='body-profile-container'>
-        <div className='profile-container'>
-            <div className='profile-container-form' onSubmit={handleSubmit}>
-                <h1 className='container-form-title'>Meu Perfil</h1>
-                <form action='profile-form-header'>
-                    <div className='profile-header-group'>
-                        <div className='profile-group-box'>
-                            <h1>Nome Completo</h1>
-                            <input
-                                    className='profile-box-name'
-                                    type="text"
-                                    placeholder='Digite seu nome completo'
-                                    onChange={(e) => setNome(e.target.value)}
-                                    />
-                        </div>
-                        <div className='profile-group-box'>
-                            <h1>CPF</h1>
-                            <input
-                                    className='profile-box-cpf'
-                                    type="text"
-                                    placeholder='Digite seu CPF'
-                                    onChange={(e) => setCpf(e.target.value)}
-                                    />
-                        </div>
-                        <div className='profile-group-box'>
-                            <h1>Endereço</h1>
-                            <input
-                                    className='profile-box-endereco'
-                                    type="text"
-                                    placeholder='Digite seu Endereço'
-                                    onChange={(e) => setEndereco(e.target.value)}
-                                    />
-                        </div>
-                        <div className='profile-group-box'>
-                            <h1>Matricula faculdade</h1>
-                            <input
-                                    className='profile-box-numero'
-                                    type="text"
-                                    placeholder='Digite seu Numero'
-                                    onChange={(e) => setMatricula(e.target.value)}
-                                    />
-                        </div>
-                        <div className='profile-group-box'>
-                            <h1>Telefone</h1>
-                            <input
-                                    className='profile-box-cidade'
-                                    type="text"
-                                    placeholder='Digite seu Cidade'
-                                    onChange={(e) => setTelefone(e.target.value)}
-                                    />
-                        </div>
-                        <div className='profile-group-box'>
-                            <h1>E-mail</h1>
-                            <input
-                                    className='profile-box-estado'
-                                    type="text"
-                                    placeholder='Digite seu Estado'
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    />
-                        </div>
-                        <div className='profile-group-box'>
-                            <h1>Curriculo</h1>
-                            <input
-                                    className='profile-box-cep'
-                                    type="text"
-                                    placeholder='Digite seu CEP'
-                                    onChange={(e) => setCurriculo(e.target.value)}
-                                    />
-                        </div>
-                    </div>
+      <div className="body-cargos-registro">
+        <div className="container-cargo-registro">
+            <header>Meu Perfil</header>
 
-                    <div className='profile-header-gender'>
-                        <div className='profile-gender-title'>
-                            <h6>Gênero</h6>
-                        </div>
-                        <div className='profile-gender-group'>
-                            <div className='gender-group-input'>
-                                <input  type="radio"
-                                        id='female'
-                                        name='gender'
-                                />
-                                <label htmlFor='female'>Feminino</label>
-                            </div>
-                            <div className='gender-group-input'>
-                                <input  type="radio"
-                                        id='male'
-                                        name='gender'
-                                />
-                                <label htmlFor='male'>Masculino</label>
-                            </div>
-                            <div className='gender-group-input'>
-                                <input  type="radio"
-                                        id='others'
-                                        name='gender'
-                                />
-                                <label htmlFor='male'>Prefiro não dizer</label>
-                            </div>
-                        </div>
+          <form onSubmit={handleSubmit}>
+              <div className="details personal">
+                  <div className="fields">
+                    <div className="input-field">
+                      <label>Nome</label>
+                      <input  className="input-field-descricao" 
+                              type="text" 
+                              placeholder="Digite a Nome"
+                              onChange={(e) => setDescricao(e.target.value)}>
+                      </input>
                     </div>
-
-                    <div className='profile-header-continueBtn'>
-                        <Link href="#">
-                            <button>Salvar</button>
-                        </Link>
+                    <div className="input-field">
+                      <label>Endereço</label>
+                      <input  type="text" 
+                              placeholder="Digite a Endereço"
+                              onChange={(e) => setExperiencia(e.target.value)}></input>
                     </div>
-                </form>
-            </div>
+                    <div className="input-field">
+                      <label>Matricula</label>
+                      <input  type="text" 
+                              placeholder="Digite a Matricula"
+                              onChange={(e) => setAreaAtuacao(e.target.value)}></input>
+                    </div>
+                    <div className="input-field">
+                      <label>CPF</label>
+                      <input  type="text" 
+                              placeholder="Digite os CPF"
+                              onChange={(e) => setBeneficios(e.target.value)}></input>
+                    </div>
+                    <div className="input-field">
+                      <label>Telefone</label>
+                      <input  type="text" 
+                              placeholder="Digite o Telefone"
+                              onChange={(e) => setSalario(e.target.value)}></input>
+                    </div>
+                    <div className="input-field">
+                      <label>Email</label>
+                      <input  type="text" 
+                              placeholder="Digite as Email"
+                              onChange={(e) => setHabilidadesDesejadas(e.target.value)}></input>
+                    </div>
+                    <div className="input-field">
+                      <label>Curriculo</label>
+                      <input  type="text" 
+                              placeholder="Digite as Curriculo"
+                              onChange={(e) => setCompetenciasDesejadas(e.target.value)}></input>
+                    </div>
+                  </div>
+              </div>
+              <button type="submit" className="btn-cargos">
+                Salvar
+              </button>
+          </form>
         </div>
       </div>
     </div>
